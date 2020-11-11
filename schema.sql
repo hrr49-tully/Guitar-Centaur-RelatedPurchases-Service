@@ -28,5 +28,5 @@ CREATE TABLE details (
 );
 
 ALTER TABLE items ADD FOREIGN KEY fk_details (details_id) REFERENCES details (id);
-ALTER TABLE related ADD FOREIGN KEY fk_parentitem (parent_item_id) REFERENCES items(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-ALTER TABLE related ADD FOREIGN KEY fk_item (item_id) REFERENCES items(id) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE related ADD FOREIGN KEY fk_parentitem (parent_item_id) REFERENCES items(id);
+ALTER TABLE related ADD FOREIGN KEY fk_item (item_id) REFERENCES items(id);
