@@ -9,7 +9,8 @@ CREATE TABLE items (
   description text,
   title text,
   cost decimal(10, 2),
-  rating int
+  rating int,
+  image_url text
 );
 
 CREATE TABLE related (
