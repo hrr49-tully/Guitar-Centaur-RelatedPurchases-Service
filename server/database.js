@@ -9,3 +9,19 @@ module.exports.getRelatedPurchases = function getRelatedPurchases(itemId, succ, 
     }
   });
 };
+
+module.exports.addRelatedPurchase = function addRelatedPurchase() {
+
+};
+
+module.exports.deleteRelatedPurchase = function deleteRelatedPurchase() {
+
+};
+
+module.exports.getDetails = function getDetails() {
+
+};
+
+module.exports.addDetails = function addDetails() {
+
+};

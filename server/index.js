@@ -24,28 +24,16 @@ app.get('/api/getrelatedpurchases', (req, res) => {
 });
 
 app.post('/api/addrelatedpurchase', (req, res) => {
-  /*return dbfunction.then((results) => {
-    res.send(results);
-  });*/
+
 });
 
 app.post('/api/deleterelatedpurchase', (req, res) => {
-  /*return dbfunction.then((results) => {
-    res.send(results);
-  });*/
+
 });
 
-app.get('/api/getdetails', (req, res) => {
-  /*return dbfunction.then((results) => {
-    res.send(results);
-  });*/
-});
+app.get('/api/getdetails', (req, res) => {});
 
-app.post('/api/adddetails', (req, res) => {
-  /*return dbfunction.then((results) => {
-    res.send(results);
-  });*/
-});
+app.post('/api/adddetails', (req, res) => {});
 
 app.listen(conn.port, () => {
   console.log(`App listening on ${conn.port}`)
