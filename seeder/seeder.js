@@ -11,7 +11,7 @@ function getRanIntRange(lo, hi) {
   return Math.floor(Math.random() * (hi - lo) + lo);
 }
 
-// This is the first batch of promises, and doesn't rely on other data, so we can just build it here.
+// This is the first batch of promises, and this table doesn't rely on other data, so we can just build it here.
 // Details table:
 const detailPromises = [];
 const detailIds = [];
