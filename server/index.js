@@ -1,17 +1,26 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
-const database = require('./database.js');
+// const bodyParser = require('body-parser');
+const db = require('./database.js');
 const conn = require('../connection.js');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/', express.static(path.join(__dirname, '/../public')));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/../public'));
 
 app.get('/api/getrelatedpurchases', (req, res) => {
-  /*return dbfunction.then((results) => {
-    res.send(results);
-  });*/
+  if (req.query.id) {
+    const id = req.query.id;
+
+    return db.getRelatedPurchases(id, (results) => {
+      res.status(200).send(results);
+    }, (error) => {
+      res.status(401).send(error);
+    });
+  } else {
+    res.status(401).send('Bad arguments');
+  }
 });
 
 app.post('/api/addrelatedpurchase', (req, res) => {
