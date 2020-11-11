@@ -38,9 +38,9 @@ for (let i = 0; i < seeds; i++) {
 
 
 // The big seed chain... Items table relies on the id's from the details table, so we must wait for that first...
-console.log('seeding details table...')
+console.log('Seeding details table...')
 Promise.all(detailPromises).then((detailIds) => {
-  console.log('Seeding details table completed...\nSeeding items table...');
+  console.log('Seeding details table completed!\nSeeding items table...');
 
   // items: details_id, description, title, cost, rating
   // INSERT INTO items (details_id, description, title, cost, rating) VALUES (1, 'text', 'text', 1234, 1);
@@ -54,8 +54,9 @@ Promise.all(detailPromises).then((detailIds) => {
       const product = faker.commerce.productName();
       const cost = faker.commerce.price();
       const rating = getRanIntRange(1, 5);
+      const imageUrl = faker.image.image();
 
-      conn.dbConn.query('INSERT INTO items (details_id, description, title, cost, rating) VALUES (?, ?, ?, ?, ?)', [detailId, productDescription, product, cost, rating] ,function (error, results) {
+      conn.dbConn.query('INSERT INTO items (details_id, description, title, cost, rating, image_url) VALUES (?, ?, ?, ?, ?, ?)', [detailId, productDescription, product, cost, rating, imageUrl], function (error, results) {
         if (!error) {
           res(results.insertId);
         } else {
@@ -70,7 +71,7 @@ Promise.all(detailPromises).then((detailIds) => {
 
   Promise.all(itemPromises).then((itemIds) => {
     // Items table is no built, so we can reference it in the related table...
-    console.log('Seeding items table completed...\nSeeding related items...');
+    console.log('Seeding items table completed!\nSeeding related items...');
 
     // related: parent_item_id, item_id
     // INSERT INTO related (parent_item_id, item_id) VALUES (1, 2);
@@ -97,7 +98,7 @@ Promise.all(detailPromises).then((detailIds) => {
     }
 
     Promise.all(relatedPromises).then((relatedIds) => {
-      console.log('Seeding related items table completed...\nFINISHED!');
+      console.log('Seeding related items table completed!\nFINISHED!');
       conn.dbConn.end();
     });
   });
