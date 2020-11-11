@@ -8,8 +8,9 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed": "node seeder/seeder.js",
-    "server": "nodemon server/index.js",
+    "seeder": "node seeder/seeder.js",
+    "server": "node server/index.js",
+    "server-dev": "nodemon server/index.js",
     "client": "webpack -d --watch"
   },
   "dependencies": {
@@ -21,8 +22,6 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "nodemon": "^2.0.6",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
@@ -30,6 +29,8 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
     "babel-preset-react": "^6.24.1",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "nodemon": "^2.0.6",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
   }
