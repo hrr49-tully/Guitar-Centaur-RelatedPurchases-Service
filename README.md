@@ -4,10 +4,13 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/hrr49-tully/Guitar-Centaur-RelatedPurchases-Proxy
+  - https://github.com/hrr49-tully/Guitar-Centaur-Carousel-Service
+  - https://github.com/hrr49-tully/Guitar-Centaur-Carousel-Proxy
+  - https://github.com/hrr49-tully/Guitar-Centaur-Reviews-Service
+  - https://github.com/hrr49-tully/Guitar-Centaur-Reviews-Proxy
+  - https://github.com/hrr49-tully/Guitar-Centaur-Add-to-Cart
+  - https://github.com/hrr49-tully/Guitar-Centaur-Add-to-Cart-proxy
 
 ## Table of Contents
 
