@@ -11,9 +11,8 @@ function getRanIntRange(lo, hi) {
   return Math.floor(Math.random() * (hi - lo) + lo);
 }
 
-// This is the first batch of promises, and doesn't rely on other data, so we can just build it here...
-// details: overview, specifications, coverage
-// INSERT INTO details (overview, specifications, coverage) VALUES ('text', 'text', 'text');
+// This is the first batch of promises, and doesn't rely on other data, so we can just build it here.
+// Details table:
 const detailPromises = [];
 const detailIds = [];
 
@@ -37,13 +36,12 @@ for (let i = 0; i < seeds; i++) {
 }
 
 
-// The big seed chain... Items table relies on the id's from the details table, so we must wait for that first...
+// The main seed chain.
 console.log('Seeding details table...')
 Promise.all(detailPromises).then((detailIds) => {
+  // Items:
   console.log('Seeding details table completed!\nSeeding items table...');
 
-  // items: details_id, description, title, cost, rating
-  // INSERT INTO items (details_id, description, title, cost, rating) VALUES (1, 'text', 'text', 1234, 1);
   const itemPromises = [];
   const itemIds = [];
 
@@ -70,11 +68,10 @@ Promise.all(detailPromises).then((detailIds) => {
   }
 
   Promise.all(itemPromises).then((itemIds) => {
-    // Items table is no built, so we can reference it in the related table...
+    // Related:
+    // Items table is now built, so we can now reference it in the related table.
     console.log('Seeding items table completed!\nSeeding related items...');
 
-    // related: parent_item_id, item_id
-    // INSERT INTO related (parent_item_id, item_id) VALUES (1, 2);
     const relatedPromises = [];
 
     for (let m = 0; m < relatedSeedMultiplier; m++) {
