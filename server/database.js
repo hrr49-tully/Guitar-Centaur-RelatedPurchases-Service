@@ -10,18 +10,51 @@ module.exports.getRelatedPurchases = function getRelatedPurchases(itemId, succ, 
   });
 };
 
-module.exports.addRelatedPurchase = function addRelatedPurchase() {
-
+module.exports.addRelatedPurchase = function addRelatedPurchase(parentId, itemId, succ, err) {
+  conn.dbConn.query('INSERT INTO related (parent_item_id, item_id) VALUES (?, ?)', [parentId, itemId],  (error, results) => {
+    if (error) {
+      err(error);
+    } else {
+      succ(results);
+    }
+  });
 };
 
-module.exports.deleteRelatedPurchase = function deleteRelatedPurchase() {
-
+module.exports.deleteRelatedPurchase = function deleteRelatedPurchase(relatedId, succ, err) {
+  conn.dbConn.query('DELETE FROM related WHERE id = ?', [relatedId],  (error, results) => {
+    if (error) {
+      err(error);
+    } else {
+      succ(results);
+    }
+  });
 };
 
-module.exports.getDetails = function getDetails() {
-
+module.exports.getDetails = function getDetails(detailsId, succ, err) {
+  conn.dbConn.query('SELECT * FROM details WHERE id = ?', [detailsId],  (error, results) => {
+    if (error) {
+      err(error);
+    } else {
+      succ(results);
+    }
+  });
 };
 
-module.exports.addDetails = function addDetails() {
-
+module.exports.addDetails = function addDetails(iid, overview, specs, coverage, succ, err) {
+  conn.dbConn.query('INSERT INTO details (overview, specifications, coverage) VALUES (?, ?, ?)', [overview, specs, coverage],  (error, results) => {
+    // SELECT * FROM details WHERE id = ?
+    if (error) {
+      err(error);
+    } else {
+      // update item
+      const detailsId = results.insertId;
+      conn.dbConn.query('UPDATE items SET details_id = ? WHERE id = ?', [detailsId, iid],  (error, results) => {
+        if (error) {
+          err(error);
+        } else {
+          succ(results);
+        }
+      });
+    }
+  });
 };
