@@ -74,11 +74,7 @@ Promise.all(detailPromises).then((detailIds) => {
 
     const relatedPromises = [];
 
-<<<<<<< HEAD
-    for (let m = 0; m < relatedSeedMultiplier; m++) {
-=======
     for (let m = 0; m <= relatedSeedMultiplier; m++) {
->>>>>>> f3efbb12091a013c1ed2ba870872a88cd875fd73
       for (let i = 0; i < itemIds.length; i++) {
         const promise = new Promise((res, rej) => {
           const parentId = itemIds[i];
