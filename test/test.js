@@ -1,9 +1,17 @@
-const assert = require('assert');
+const conn = require('../connection.js');
+const request = require('supertest')(`${conn.url}`);
 
-describe('Array', function() {
-  describe ('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal([1, 2, 3].indexOf(4), -1);
-    });
+describe('/api/getRelatedPurchases1 end point:', () => {
+  it('Should fetch related data when given an ID', (done) => {
+    request.get('/api/getRelatedPurchases?id=1').expect(200).expect((res) => {
+      expect(res.text).toBeDefined();
+      expect(res.status).toEqual(200);
+    }).end(done);
+  });
+
+  it('Should fail when not given an ID', (done) => {
+    request.get('/api/getRelatedPurchases').expect(401).expect((res) => {
+      expect(res.status).toEqual(401);
+    }).end(done);
   });
 });
