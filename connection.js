@@ -7,6 +7,8 @@ const dbUser  = 'student';
 const dbPass  = 'password';
 const db      = 'rpmodule';
 
+const awsUrl = 'https://hrr49-fec-jw.s3.us-east-2.amazonaws.com/FEC/';
+
 const mysql = require('mysql');
 const dbConn = mysql.createConnection({
   host      : host,
@@ -19,5 +21,6 @@ module.exports = {
   host,
   port,
   url,
-  dbConn
+  dbConn,
+  awsUrl
 };

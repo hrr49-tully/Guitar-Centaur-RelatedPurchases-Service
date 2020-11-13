@@ -52,7 +52,7 @@ Promise.all(detailPromises).then((detailIds) => {
       const product = faker.commerce.productName();
       const cost = faker.commerce.price();
       const rating = getRanIntRange(1, 5);
-      const imageUrl = faker.image.image();
+      const imageUrl = `${conn.awsUrl}images/${getRanIntRange(1, 50)}.jpg`;
 
       conn.dbConn.query('INSERT INTO items (details_id, description, title, cost, rating, image_url) VALUES (?, ?, ?, ?, ?, ?)', [detailId, productDescription, product, cost, rating, imageUrl], function (error, results) {
         if (!error) {
@@ -80,7 +80,7 @@ Promise.all(detailPromises).then((detailIds) => {
           const parentId = itemIds[i];
           const itemId = getRanIntRange(0, itemIds.length);
 
-          conn.dbConn.query('INSERT INTO related (parent_item_id, item_id) VALUES (?, ?)', [parentId, itemId],function (error, results) {
+          conn.dbConn.query('INSERT INTO related (parent_item_id, item_id) VALUES (?, ?)', [parentId, itemId], function (error, results) {
             if (!error) {
               res(results.insertId);
             } else {
