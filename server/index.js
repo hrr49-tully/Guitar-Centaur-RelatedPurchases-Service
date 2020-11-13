@@ -24,6 +24,7 @@ app.get('/api/getrelatedpurchases', (req, res) => {
 });
 
 app.post('/api/addrelatedpurchase', (req, res) => {
+  console.log(req);
   if (req.query.pid && req.query.iid) {
     const pid = req.query.pid;
     const iid = req.query.iid;
