@@ -9,7 +9,7 @@ describe('/api/getRelatedPurchases1 end point:', () => {
     }).end(done);
   });
 
-  it('Should fail when not given an ID', (done) => {
+  it('Should fail when not given an ID, and retrurn a 401.', (done) => {
     request.get('/api/getRelatedPurchases').expect(401).expect((res) => {
       expect(res.status).toEqual(401);
     }).end(done);
@@ -17,14 +17,14 @@ describe('/api/getRelatedPurchases1 end point:', () => {
 });
 
 describe('/api/addrelatedpurchase end point:', () => {
-  it('Should post data when given a pid and iid:', (done) => {
+  it('Should post data when given a pid and iid', (done) => {
     request.post('/api/addrelatedpurchase?pid=1&iid=1').expect(200).expect((res) => {
       expect(res.text).toBeDefined();
       expect(res.status).toEqual(200);
     }).end(done);
   });
 
-  it('Should fail when not given enough information:', (done) => {
+  it('Should fail when not given enough information, and return a 401.', (done) => {
     request.post('/api/addrelatedpurchase').expect(401).expect((res) => {
       expect(res.status).toEqual(401);
     }).end(done);
