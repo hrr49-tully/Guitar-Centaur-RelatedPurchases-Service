@@ -9,6 +9,26 @@ const conn = require('../connection.js');
 // app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
 
+app.get('/api/getitem', (req, res) => {
+  if (req.query.id) {
+    // single item
+    const id = req.query.id;
+
+    return db.getItem(id, (results) => {
+      res.status(200).send(results);
+    }, (error) => {
+      res.status(401).send('Server error');
+    });
+  } else {
+    // all items
+    return db.getItem(null, (results) => {
+      res.status(200).send(results);
+    }, (error) => {
+      res.status(401).send('Server error');
+    });
+  }
+});
+
 app.get('/api/getrelatedpurchases', (req, res) => {
   if (req.query.id) {
     const id = req.query.id;

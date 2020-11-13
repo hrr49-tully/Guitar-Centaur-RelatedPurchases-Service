@@ -4,18 +4,21 @@ const output = path.join(__dirname, '/public');
 
 
 module.exports = {
+  optimization: {
+    minimize: false
+  },
   watch: true,
-  entry: `${src}/index.jsx`,
+  entry: path.join(__dirname, 'client', 'index.jsx'),
   output: {
     filename: 'bundle.js',
-    path: output
+    path: path.join(__dirname, 'public')
   },
   module: {
     rules: [
       {
         test : /\.jsx?/,
         include : src,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
