@@ -74,11 +74,18 @@ Promise.all(detailPromises).then((detailIds) => {
 
     const relatedPromises = [];
 
-    for (let m = 0; m <= relatedSeedMultiplier; m++) {
-      for (let i = 0; i < itemIds.length; i++) {
+    for (let i = 0; i < itemIds.length; i++) {
+      const relatedIds = [];
+      for (let m = 0; m <= relatedSeedMultiplier; m++) {
         const promise = new Promise((res, rej) => {
           const parentId = itemIds[i];
-          const itemId = getRanIntRange(0, itemIds.length);
+
+          // make sure related is unique per item
+          let itemId = null;
+          while (relatedIds.indexOf(itemId) >= 0 || itemId === null) {
+            itemId = getRanIntRange(0, itemIds.length);
+          }
+          relatedIds.push(itemId);
 
           conn.dbConn.query('INSERT INTO related (parent_item_id, item_id) VALUES (?, ?)', [parentId, itemId], function (error, results) {
             if (!error) {
