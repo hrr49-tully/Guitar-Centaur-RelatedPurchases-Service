@@ -1,7 +1,7 @@
 const conn = require('../connection.js');
 const request = require('supertest')(`${conn.url}`);
 
-describe('/api/getRelatedPurchases1 end point:', () => {
+describe('/api/getRelatedPurchases end point:', () => {
   it('Should fetch related data when given an ID', (done) => {
     request.get('/api/getRelatedPurchases?id=1').expect(200).expect((res) => {
       expect(res.text).toBeDefined();
