@@ -1,9 +1,20 @@
+/* TODO: make visible arrows: */
+.slick-prev {
+  left: 0 !important;
+  z-index: 1000;
+}
+
+.slick-next {
+  right: 0 !important;
+  z-index: 1000;
+}
+
 * {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
-#relatedPurchases ul {
+.slick-slider ul {
   list-style: none;
   padding-left: 0;
   width: 100%;
@@ -11,11 +22,16 @@
   display: block;
 }
 
-.relatedPurchase img {
-  width: 4em;
+#relatedPurchases {
+  overflow: hidden;
+  padding: 4em;
 }
 
-.relatedPurchase li:nth-child(2):hover {
+.relatedPurchase ul li:nth-child(1) img {
+  width: 8em;
+}
+
+.relatedPurchase ul li:nth-child(2):hover {
   text-decoration: underline;
 }
 
@@ -27,7 +43,6 @@
 
 .relatedPurchase {
   display: inline-block;
-  width: 20%;
   overflow: unset;
 }
 
