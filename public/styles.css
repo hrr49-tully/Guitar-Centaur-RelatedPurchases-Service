@@ -30,3 +30,17 @@
   width: 20%;
   overflow: unset;
 }
+
+.ratings .ratingsAverage .star {
+  width: 16px;
+  height: auto;
+  display: inline-block;
+}
+
+.ratings .ratingsAverage, .ratings .ratingsCount  {
+  display: inline-block;
+}
+
+.ratings .ratingsCount {
+  margin-left: 16px;
+}

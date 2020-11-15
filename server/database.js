@@ -1,5 +1,31 @@
 const conn = require('../connection.js');
 
+module.exports.getRatingAvg = function getRatingAvg(itemId, succ, err) {
+  // Raing average for star display
+  if (itemId) {
+    conn.dbConn.query('SELECT AVG(score) AS score FROM ratings WHERE item_id = ?', [itemId],  (error, results) => {
+      if (error) {
+        err(error);
+      } else {
+        succ(results);
+      }
+    });
+  }
+}
+
+module.exports.getRatingCount = function getRatingCount(itemId, succ, err) {
+  // How many ratings there are
+  if (itemId) {
+    conn.dbConn.query('SELECT COUNT(score) AS score FROM ratings WHERE item_id = ?', [itemId],  (error, results) => {
+      if (error) {
+        err(error);
+      } else {
+        succ(results);
+      }
+    });
+  }
+}
+
 module.exports.getItem = function getItem(itemId, succ, err) {
   if (itemId) {
     // get specific item

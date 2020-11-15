@@ -1,9 +1,9 @@
 import React from 'react';
+import Ratings from './Ratings.jsx';
 
 class RelatedPurchase extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.data);
   }
 
   render() {
@@ -12,7 +12,7 @@ class RelatedPurchase extends React.Component {
         <li><a href="/"><img src={this.props.data.image_url} alt="image of a guitar"/></a></li>
         <li><a href="/">{this.props.data.title}</a></li>
         <li>${this.props.data.cost}</li>
-        <li>{this.props.data.rating}</li>
+        <li><Ratings id={this.props.data.id}/></li>
       </ul>
     );
   }
