@@ -22,14 +22,13 @@ class Ratings extends React.Component {
 
   getRatingCount() {
     $.get('/api/getratingcount', {id: this.props.id}, (data) => {
-      console.log(data[0].score);
       this.setState({ratingCnt: Number(data[0].score)});
     });
   }
 
   getStars() {
     $.get('/api/getratingavg', {id: this.props.id}, (data) => {
-      let starRating = Math.round(Number(data[0].score)) - 1;
+      let starRating = Math.round(Number(data[0].score));
       if (starRating > 5) {
         starRating = 5;
       } else if (starRating < 0) {

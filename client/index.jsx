@@ -9,15 +9,13 @@ class App extends React.Component {
     super(props);
   }
 
-
-
   render() {
     return (
       <div id="wrapper">
-        <RelatedPurchases id={1}/>
+        <RelatedPurchases id={this.props.id}/>
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App id={11}/>, document.getElementById('app'));
