@@ -2,20 +2,53 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
+import Details from './Details.jsx';
 import RelatedPurchases from './RelatedPurchases.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      id: this.props.id,
+      relatedData: [],
+      details: []
+    }
+
+    this.handleItemChange = this.handleItemChange.bind(this);
+    this.getRelatedPurchases = this.getRelatedPurchases.bind(this);
+
+    // initial
+    this.getRelatedPurchases(this.state.id);
+    this.getDetails(this.state.id);
+  }
+
+  handleItemChange(id) {
+    this.setState({id: id});
+    this.getRelatedPurchases(id);
+    this.getDetails(id);
+  }
+
+  getRelatedPurchases(itemId) {
+    $.get('/api/getrelatedpurchases', {id: itemId}, (data) => {
+      this.setState({relatedData: data});
+    });
+  }
+
+  getDetails(itemId) {
+    $.get('/api/getdetails', {id: itemId}, (data) => {
+      this.setState({details: data[0]});
+    });
   }
 
   render() {
     return (
       <div id="wrapper">
-        <RelatedPurchases id={this.props.id}/>
+        <Details details={this.state.details}/>
+        <RelatedPurchases id={this.state.id} handleItemChange={this.handleItemChange} relatedData={this.state.relatedData}/>
       </div>
     );
   }
 }
 
-ReactDOM.render(<App id={11}/>, document.getElementById('app'));
+ReactDOM.render(<App id={1}/>, document.getElementById('app'));

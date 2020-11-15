@@ -1,15 +1,15 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Component from '../client/test';
+import Ratings from '../client/Ratings.jsx';
 
 // TODO: move to config file
 Enzyme.configure({adapter: new Adapter()});
 
-describe('Component', () => {
+describe('Ratings', () => {
   it('should show text', () => {
-    const wrapper = shallow(<Component />);
-    const text = wrapper.find('div div');
-    expect(text.text()).toBe('Text goes here');
+    const wrapper = shallow(<Ratings />);
+    const star = wrapper.find('<div>');
+    //expect(star).to.exist();
   });
 });
