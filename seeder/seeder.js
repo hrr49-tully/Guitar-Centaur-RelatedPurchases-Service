@@ -4,6 +4,7 @@ const conn = require('../connection.js');
 
 const seeds = 100; // base count for how many items to populate database with
 const relatedSeedMultiplier = 20; // how many related items per-item entry
+const maxRatingsPerItem = 25;
 
 function getRanIntRange(lo, hi) {
   lo = Math.ceil(lo);
@@ -102,8 +103,32 @@ Promise.all(detailPromises).then((detailIds) => {
     }
 
     Promise.all(relatedPromises).then((relatedIds) => {
-      console.log('Seeding related items table completed!\nFINISHED!');
-      conn.dbConn.end();
+      console.log('Seeding related items table completed!');
+
+      // Ratings
+      console.log('Seeding ratings table...');
+      const ratingsPromises = [];
+      for (let i = 0; i < itemIds.length; i++) {
+        const ranRantingsAmount = getRanIntRange(0, maxRatingsPerItem);
+        for (let r = 0; r <= ranRantingsAmount; r++) {
+          const promise = new Promise((res, rej) => {
+            conn.dbConn.query('INSERT INTO ratings (item_id, score) VALUES (?, ?)', [itemIds[i], getRanIntRange(1, 5)], function (error, results) {
+              if (!error) {
+                res(results.insertId);
+              } else {
+                console.log('Error in ratings seeder: ', error);
+                rej(error);
+              }
+            });
+          });
+          ratingsPromises.push(promise);
+        }
+      }
+
+      Promise.all(ratingsPromises).then((ratingsIds) => {
+        console.log('Seeding ratings table completed!\nSeeding finished!');
+        conn.dbConn.end();
+      });
     });
   });
 });

@@ -9,6 +9,36 @@ const conn = require('../connection.js');
 // app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
 
+app.get('/api/getratingavg', (req, res) => {
+  if (req.query.id) {
+    // single item
+    const id = req.query.id;
+
+    return db.getRatingAvg(id, (results) => {
+      res.status(200).send(results);
+    }, (error) => {
+      res.status(401).send('Server error');
+    });
+  } else {
+    res.status(401).send('Bad arguments');
+  }
+});
+
+app.get('/api/getratingcount', (req, res) => {
+  if (req.query.id) {
+    // single item
+    const id = req.query.id;
+
+    return db.getRatingCount(id, (results) => {
+      res.status(200).send(results);
+    }, (error) => {
+      res.status(401).send('Server error');
+    });
+  } else {
+    res.status(401).send('Bad arguments');
+  }
+});
+
 app.get('/api/getitem', (req, res) => {
   if (req.query.id) {
     // single item

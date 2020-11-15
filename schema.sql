@@ -9,7 +9,6 @@ CREATE TABLE items (
   description text,
   title text,
   cost decimal(10, 2),
-  rating int,
   image_url text
 );
 
