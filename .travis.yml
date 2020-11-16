@@ -4,4 +4,7 @@ node_js:
   - "stable"
 
 services:
-  - "mariadb"
+  - "mysql"
+
+addons:
+  mariadb: '10.0'
