@@ -1,9 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-import Slider from "react-slick";
-
-import RelatedPurchase from './RelatedPurchase.jsx';
+import Slider from './Slider.jsx';
 
 class RelatedPurchases extends React.Component {
   constructor(props) {
@@ -11,29 +9,10 @@ class RelatedPurchases extends React.Component {
   }
 
   render() {
-    const settings = {
-      dots: true,
-      arrows: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 5,
-      initialSlide: 0,
-      adaptiveHeight: true,
-      arrows: true,
-      className: 'slides'
-    };
-
     return (
       <div id="relatedPurchases">
         <h2>Related Purchases</h2>
-        <Slider {...settings} id="relatedPurchasesSlider">
-          {
-            this.props.relatedData.map((data, key) => {
-              return <RelatedPurchase data={data} handleItemChange={this.props.handleItemChange}/>
-            })
-          }
-        </Slider>
+        <Slider handleItemChange={this.props.handleItemChange} relatedData={this.props.relatedData}/>
       </div>
     );
   }
