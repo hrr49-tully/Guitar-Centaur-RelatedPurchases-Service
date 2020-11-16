@@ -29,7 +29,7 @@ module.exports.getRatingCount = function getRatingCount(itemId, succ, err) {
 module.exports.getItem = function getItem(itemId, succ, err) {
   if (itemId) {
     // get specific item
-    conn.dbConn.query('SELECT i.id,i.title,i.description,i.cost,i.rating,i.image_url,d.overview,d.specifications,d.coverage FROM items i LEFT JOIN details d ON i.details_id = d.id WHERE i.id = ?', [itemId],  (error, results) => {
+    conn.dbConn.query('SELECT i.id,i.title,i.description,i.cost,i.image_url,d.overview,d.specifications,d.coverage FROM items i LEFT JOIN details d ON i.details_id = d.id WHERE i.id = ?', [itemId],  (error, results) => {
       if (error) {
         err(error);
       } else {
