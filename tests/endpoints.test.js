@@ -16,6 +16,36 @@ describe('/api/getRelatedPurchases end point:', () => {
   });
 });
 
+describe('/api/getratingavg end point:', () => {
+  it('Should fetch an average for a given item ID', (done) => {
+    request.get('/api/getratingavg?id=1').expect(200).expect((res) => {
+      expect(JSON.parse(res.text)[0].score).toBeDefined();
+      expect(res.status).toEqual(200);
+    }).end(done);
+  });
+
+  it('Should fail when not given an ID, and retrurn a 401.', (done) => {
+    request.get('/api/getdetails').expect(401).expect((res) => {
+      expect(res.status).toEqual(401);
+    }).end(done);
+  });
+});
+
+describe('/api/getratingcount end point:', () => {
+  it('Should fetch a count of all ratings for a given item ID', (done) => {
+    request.get('/api/getratingcount?id=1').expect(200).expect((res) => {
+      expect(JSON.parse(res.text)[0].score).toBeDefined();
+      expect(res.status).toEqual(200);
+    }).end(done);
+  });
+
+  it('Should fail when not given an ID, and retrurn a 401.', (done) => {
+    request.get('/api/getdetails').expect(401).expect((res) => {
+      expect(res.status).toEqual(401);
+    }).end(done);
+  });
+});
+
 describe('/api/getdetails end point:', () => {
   it('Should fetch overview details for an item when given an ID', (done) => {
     request.get('/api/getdetails?id=1').expect(200).expect((res) => {
