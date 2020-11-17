@@ -1,5 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
+
+import styles from './css/RelatedPurchases.module.css';
 
 import Slider from './Slider.jsx';
 
@@ -10,7 +11,7 @@ class RelatedPurchases extends React.Component {
 
   render() {
     return (
-      <div id="relatedPurchases">
+      <div className={styles.relatedPurchases}>
         <h2>Related Purchases</h2>
         <Slider handleItemChange={this.props.handleItemChange} relatedData={this.props.relatedData}/>
       </div>

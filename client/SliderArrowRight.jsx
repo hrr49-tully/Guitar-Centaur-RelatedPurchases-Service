@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './css/SliderArrows.module.css';
+
 class SliderArrowRight extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ class SliderArrowRight extends React.Component {
 
   render() {
     return (
-      <div onClick={this.handleClick} id="relatedPurchasesSliderArrowRight">&gt;</div>
+      <div onClick={this.handleClick} className={styles.relatedPurchasesSliderArrowRight}>&gt;</div>
     );
   }
 }

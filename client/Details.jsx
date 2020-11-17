@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './css/Details.module.css';
+
 class Details extends React.Component {
   constructor(props) {
     super(props);

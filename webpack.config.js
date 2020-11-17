@@ -4,9 +4,6 @@ const output = path.join(__dirname, '/public');
 
 
 module.exports = {
-  /*optimization: {
-    minimize: false
-  },*/
   watch: true,
   entry: path.join(__dirname, 'client', 'index.jsx'),
   output: {
@@ -15,6 +12,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
       {
         test : /\.jsx?/,
         include : src,

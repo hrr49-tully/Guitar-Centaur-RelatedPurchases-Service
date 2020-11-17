@@ -1,12 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-// const bodyParser = require('body-parser');
 const db = require('./database.js');
 const conn = require('../connection.js');
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
 
 app.get('/api/getratingavg', (req, res) => {

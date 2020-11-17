@@ -1,6 +1,8 @@
 import React from 'react';
 import Ratings from './Ratings.jsx';
 
+import styles from './css/RelatedPurchase.module.css';
+
 class RelatedPurchase extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +17,7 @@ class RelatedPurchase extends React.Component {
 
   render() {
     return (
-      <div className="relatedPurchase">
+      <div className={styles.relatedPurchase}>
         <ul>
           <li><a href="/" onClick={this.handleClick}><img src={this.props.data.image_url} alt="image of a guitar"/></a></li>
           <li><a href="/" onClick={this.handleClick}>{this.props.data.title}</a></li>

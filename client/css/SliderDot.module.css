@@ -1,0 +1,17 @@
+.relatedPurchasesSliderDot, .relatedPurchasesSliderDotActive {
+  width: 1em;
+  height: 1em;
+  background-color: grey;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.relatedPurchasesSliderDot:hover {
+  background: yellow;
+}
+
+.relatedPurchasesSliderDotActive {
+  background-color: red;
+}
+
