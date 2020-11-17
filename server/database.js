@@ -38,7 +38,7 @@ module.exports.getItem = function getItem(itemId, succ, err) {
     });
   } else {
     // get all items
-    conn.dbConn.query('SELECT i.title,i.description,i.cost,i.rating,i.image_url,d.overview,d.specifications,d.coverage FROM items i LEFT JOIN details d ON i.details_id = d.id',  (error, results) => {
+    conn.dbConn.query('SELECT i.title,i.description,i.cost,i.image_url,d.overview,d.specifications,d.coverage FROM items i LEFT JOIN details d ON i.details_id = d.id',  (error, results) => {
       if (error) {
         err(error);
       } else {
@@ -49,7 +49,7 @@ module.exports.getItem = function getItem(itemId, succ, err) {
 };
 
 module.exports.getRelatedPurchases = function getRelatedPurchases(itemId, succ, err) {
-  conn.dbConn.query('SELECT i.id,i.details_id,i.description,i.title,i.cost,i.rating,i.image_url FROM related r INNER JOIN items i ON r.item_id = i.id WHERE parent_item_id = ?', [itemId],  (error, results) => {
+  conn.dbConn.query('SELECT i.id,i.details_id,i.description,i.title,i.cost,i.image_url FROM related r INNER JOIN items i ON r.item_id = i.id WHERE parent_item_id = ?', [itemId],  (error, results) => {
     if (error) {
       err(error);
     } else {

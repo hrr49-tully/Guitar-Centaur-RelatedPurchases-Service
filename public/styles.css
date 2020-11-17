@@ -23,25 +23,28 @@
 }
 
 #relatedPurchasesSlider {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  overflow-x: hidden;
+  width: 100%;
 }
 
 .relatedPurchasesSliderStack {
-  flex: 1;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .relatedPurchase {
-  flex: 0 0 auto;
+  flex: 0 1 20%;
   width: 20vw;
-  padding: 1em;
+  overflow: hidden;
+  max-height: 100%;
 }
 
 .relatedPurchase ul {
@@ -79,6 +82,9 @@
   display: inline-block;
   margin-right: 1em;
 }
+.relatedPurchasesSliderDot:hover {
+  background: yellow;
+}
 .relatedPurchasesSliderDotActive {
   background-color: red;
 }
@@ -92,7 +98,7 @@
 /* Slider arrows */
 #relatedPurchasesSliderArrowLeft, #relatedPurchasesSliderArrowRight {
   width: 1em;
-  height: 4em;
+  height: 3.25em;
   padding: 1em;
   font-weight: bold;
   border: 1px solid grey;
@@ -101,13 +107,20 @@
   z-index: 1000;
   vertical-align: center;
   position: relative;
-
+  top: 6em;
 }
+#relatedPurchasesSliderArrowLeft:hover, #relatedPurchasesSliderArrowRight:hover {
+  background: grey;
+  color: white;
+}
+
 #relatedPurchasesSliderArrowLeft {
   float: left;
-  top: 5em;
 }
 #relatedPurchasesSliderArrowRight {
   float:right;
-  top: -14em;
+}
+
+#relatedPurchases {
+  overflow: hidden;
 }
