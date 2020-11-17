@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 
+import styles from './css/Ratings.module.css';
+
 class Ratings extends React.Component {
   constructor(props) {
     super(props);
@@ -38,9 +40,9 @@ class Ratings extends React.Component {
       let stars = [];
       for (let i = 0; i < 5; i++) {
         if (i < starRating) {
-          stars.push(<img className="star" src={this.startFilled} alt ="filled star"/>);
+          stars.push(<img className={styles.star} src={this.startFilled} alt ="filled star"/>);
         } else {
-          stars.push(<img className="star" src={this.starEmpty} alt ="empty star"/>);
+          stars.push(<img className={styles.star} src={this.starEmpty} alt ="empty star"/>);
         }
       }
 
@@ -50,9 +52,9 @@ class Ratings extends React.Component {
 
   render() {
     return (
-      <div className="ratings">
-        <div className="ratingsAverage">{this.state.stars}</div>
-        <div className="ratingsCount">({this.state.ratingCnt})</div>
+      <div className={styles.ratings}>
+        <div className={styles.ratingsAverage}>{this.state.stars}</div>
+        <div className={styles.ratingsCount}>({this.state.ratingCnt})</div>
       </div>
     );
   }

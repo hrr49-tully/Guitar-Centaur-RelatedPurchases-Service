@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './css/SliderArrows.module.css';
+
 class SliderArrowLeft extends React.Component {
   constructor(props) {
     super(props);

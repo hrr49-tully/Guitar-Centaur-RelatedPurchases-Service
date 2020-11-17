@@ -2,6 +2,8 @@ import React from 'react';
 import Ratings from './Ratings.jsx';
 import $ from 'jquery';
 
+import styles from './css/Slider.module.css';
+
 import SliderStack from './SliderStack.jsx';
 import SliderArrowLeft from './SliderArrowLeft.jsx';
 import SliderArrowRight from './SliderArrowRight.jsx';

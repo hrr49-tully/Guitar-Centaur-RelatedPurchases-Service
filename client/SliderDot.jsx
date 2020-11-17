@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './css/SliderDot.module.css';
+
 class SliderDot extends React.Component {
   constructor(props) {
     super(props);
@@ -13,9 +15,9 @@ class SliderDot extends React.Component {
   render() {
     let dot;
     if (this.props.stackPosition === this.props.index) {
-      dot = <div onClick={this.handleClick} className="relatedPurchasesSliderDotActive"></div>
+      dot = <div onClick={this.handleClick} className={styles.relatedPurchasesSliderDotActive}></div>
     } else {
-      dot = <div onClick={this.handleClick} className="relatedPurchasesSliderDot"></div>
+      dot = <div onClick={this.handleClick} className={styles.relatedPurchasesSliderDot}></div>
     }
 
     return (

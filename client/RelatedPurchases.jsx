@@ -1,5 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
+
+import styles from './css/RelatedPurchases.module.css';
 
 import Slider from './Slider.jsx';
 

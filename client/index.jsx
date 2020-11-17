@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
+import styles from './css/index.module.css'
+
 import Details from './Details.jsx';
 import RelatedPurchases from './RelatedPurchases.jsx';
 
@@ -43,7 +45,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="wrapper">
+      <div id="wrapper" className={styles.body}>
         <Details details={this.state.details}/>
         <RelatedPurchases id={this.state.id} handleItemChange={this.handleItemChange} relatedData={this.state.relatedData}/>
       </div>

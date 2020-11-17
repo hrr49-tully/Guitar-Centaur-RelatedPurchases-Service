@@ -1,0 +1,26 @@
+/*#relatedPurchasesSliderArrowLeft, #relatedPurchasesSliderArrowRight {
+  width: 1em;
+  height: 3.25em;
+  padding: 1em;
+  font-weight: bold;
+  border: 1px solid grey;
+  color: grey;
+  background: white;
+  z-index: 1000;
+  vertical-align: center;
+  position: relative;
+  top: 6em;
+}
+
+#relatedPurchasesSliderArrowLeft:hover, #relatedPurchasesSliderArrowRight:hover {
+  background: grey;
+  color: white;
+}
+
+#relatedPurchasesSliderArrowLeft {
+  float: left;
+}
+
+#relatedPurchasesSliderArrowRight {
+  float:right;
+}*/
