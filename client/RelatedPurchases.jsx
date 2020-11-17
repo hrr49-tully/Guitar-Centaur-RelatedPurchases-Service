@@ -11,7 +11,7 @@ class RelatedPurchases extends React.Component {
 
   render() {
     return (
-      <div id="relatedPurchases">
+      <div className={styles.relatedPurchases}>
         <h2>Related Purchases</h2>
         <Slider handleItemChange={this.props.handleItemChange} relatedData={this.props.relatedData}/>
       </div>

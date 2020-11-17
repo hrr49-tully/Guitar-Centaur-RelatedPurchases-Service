@@ -45,7 +45,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="wrapper" className={styles.body}>
+      <div className={styles.body}>
         <Details details={this.state.details}/>
         <RelatedPurchases id={this.state.id} handleItemChange={this.handleItemChange} relatedData={this.state.relatedData}/>
       </div>

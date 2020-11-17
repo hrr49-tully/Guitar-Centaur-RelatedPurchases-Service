@@ -88,14 +88,14 @@ class Slider extends React.Component {
       <div>
         <SliderArrowLeft handleMove={this.move}/>
         <SliderArrowRight handleMove={this.move}/>
-        <div id="relatedPurchasesSlider">
+        <div id="relatedPurchasesSlider" className={styles.relatedPurchasesSlider}>
           {
             this.stacks.map((item, key) => {
               return item
             })
           }
         </div>
-        <div id="relatedPurchasesSliderDots">
+        <div className={styles.relatedPurchasesSliderDots}>
           {
             this.stacks.map((sliderStack, key) => {
               return <SliderDot stack={sliderStack} key={key} handleMove={this.move} index={key} stackPosition={this.state.stackPosition}/>
