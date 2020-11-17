@@ -13,8 +13,7 @@ class Slider extends React.Component {
     this.move = this.move.bind(this);
 
     this.state = {
-      stackPosition: 0,
-      sliderX: 0
+      stackPosition: 0
     };
 
     this.stacks = [];
@@ -56,13 +55,22 @@ class Slider extends React.Component {
       }
     } else if (amount === null && index > -1) {
       // dot move
-
-      if (index >= 0 && index <= this.stacks.length - 1) {
+      if (index <= this.stacks.length - 1) {
+        if (index > this.state.stackPosition) {
+          // go right
+          const diff = Number(this.state.stackPosition - index);
+          $("#relatedPurchasesSlider").animate({
+            left: `+=${100 * diff}%`,
+          }, 500 );
+        } else {
+          // go left
+          const diff = Number(index - this.state.stackPosition);
+          $("#relatedPurchasesSlider").animate({
+            left: `-=${100 * diff}%`,
+          }, 500 );
+        }
         // update state
-        const diff = this.stacks.stackPosition
         this.setState({stackPosition: index});
-
-
       }
     }
   }
