@@ -10,6 +10,7 @@ class RelatedPurchase extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.handleItemChange(this.props.data.id);
+    this.props.resetStackPosition();
   }
 
   render() {
