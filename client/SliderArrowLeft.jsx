@@ -14,7 +14,7 @@ class SliderArrowLeft extends React.Component {
 
   render() {
     return (
-      <div onClick={this.handleClick} className={styles.relatedPurchasesSliderArrowLeft}>&lt;</div>
+      <div onClick={this.handleClick} className={styles.relatedPurchasesSliderArrowLeft} data-testid="arrowBtn">&lt;</div>
     );
   }
 }
