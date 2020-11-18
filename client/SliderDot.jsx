@@ -15,7 +15,7 @@ class SliderDot extends React.Component {
   render() {
     let dot;
     if (this.props.stackPosition === this.props.index) {
-      dot = <div onClick={this.handleClick} className={styles.relatedPurchasesSliderDotActive}></div>
+      dot = <div onClick={this.handleClick} className={styles.relatedPurchasesSliderDotActive} data-testid="activeBtn"></div>
     } else {
       dot = <div onClick={this.handleClick} className={styles.relatedPurchasesSliderDot}></div>
     }
