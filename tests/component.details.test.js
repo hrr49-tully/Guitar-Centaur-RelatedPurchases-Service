@@ -14,7 +14,7 @@ describe('Details ', () => {
     specifications: 'fspgMFvf3UUfJdgv'
   };
 
-  const detailsComponent = shallow(<Details details={detailExample}/>);
+  const detailsComponent = mount(<Details details={detailExample}/>);
 
   it('Should render the Details React component.', () => {
     expect(detailsComponent).toBeDefined();

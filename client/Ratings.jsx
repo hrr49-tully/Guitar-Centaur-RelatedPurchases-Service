@@ -53,8 +53,8 @@ class Ratings extends React.Component {
   render() {
     return (
       <div className={styles.ratings}>
-        <div className={styles.ratingsAverage}>{this.state.stars}</div>
-        <div className={styles.ratingsCount}>({this.state.ratingCnt})</div>
+        <div className={styles.ratingsAverage} data-testid="starAvg">{this.state.stars}</div>
+        <div className={styles.ratingsCount} data-testid="starCnt">({this.state.ratingCnt})</div>
       </div>
     );
   }

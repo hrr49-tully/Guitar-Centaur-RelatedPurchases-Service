@@ -15,7 +15,11 @@ describe('Ratings ', () => {
     expect(ratingsComponent).toBeDefined();
   });
 
-  it('Should countain images for the stars.', () => {
-    console.log('find: ', JSON.stringify(ratingsComponent.text()));
+  it('Should have a container for the stars.', () => {
+    expect(ratingsComponent.find('div[data-testid="starAvg"]').length).toBeGreaterThan(0);
+  });
+
+  it('Should have a container for the rating count.', () => {
+    expect(ratingsComponent.find('div[data-testid="starAvg"]').length).toBeGreaterThan(0);
   });
 });
