@@ -7,7 +7,9 @@ import { shallow, mount, render } from 'enzyme';
 
 import App from '../client/App.jsx';
 
-it('renders', () => {
-  const wrapper = shallow(<App id={1}/>);
-  expect(wrapper).toBeDefined();
+describe('App ', () => {
+  it('Should render the App React component.', () => {
+    const wrapper = shallow(<App id={1}/>);
+    expect(wrapper).toBeDefined();
+  });
 });

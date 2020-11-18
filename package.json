@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "guitar-centaur-related-purchases-service",
   "version": "",
   "description": "",
   "author": "",
@@ -19,8 +19,8 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mysql": "^2.18.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -34,6 +34,7 @@
     "css-loader": "^5.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-adapter-utils": "^1.13.1",
     "enzyme-to-json": "^3.6.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "faker": "^5.1.0",
