@@ -1,6 +1,6 @@
 # Guitar-Centaur-RelatedPurchases-Service
 
-> Related purchases carousel and details over for an individual item.
+> Related purchases carousel and details for an individual item.
 
 ## Related Projects
 
