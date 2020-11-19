@@ -4,7 +4,6 @@ const output = path.join(__dirname, '/public');
 
 
 module.exports = {
-  watch: true,
   entry: path.join(__dirname, 'client', 'index.jsx'),
   output: {
     filename: 'service1.js',
