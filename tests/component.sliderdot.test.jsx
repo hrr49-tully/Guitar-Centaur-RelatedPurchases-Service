@@ -22,11 +22,11 @@ describe('SliderDot ', () => {
   });
 
   it('Should have an active button, when the index matches the stack position.', () => {
-    expect(sliderDotComponent.find('div[data-testid="activeBtn"]').length).toBeGreaterThan(0);
+    expect(sliderDotComponent.find('button[data-testid="activeBtn"]').length).toBeGreaterThan(0);
   });
 
   it('Should have a click event and call the provided callback prop function "handleMove".', () => {
-    const btn = sliderDotComponent.find('div[data-testid="activeBtn"]');
+    const btn = sliderDotComponent.find('button[data-testid="activeBtn"]');
     btn.simulate('click');
     expect(exampleData.clicksCount).toEqual(1);
     exampleData.clicksCount = 0;

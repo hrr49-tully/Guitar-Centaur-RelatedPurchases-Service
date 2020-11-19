@@ -10,7 +10,6 @@ class Details extends React.Component {
   render() {
     return (
       <div className="details">
-        <h2>Details</h2>
         <h3>Coverage</h3>
         <p>{this.props.details.coverage}</p>
         <h3>Overview</h3>

@@ -1,20 +1,24 @@
 .relatedPurchasesSliderArrowLeft, .relatedPurchasesSliderArrowRight {
   width: 1em;
-  height: 2.25em;
-  padding: 2em 1em 1em 1em;
+  height: 2em;
   font-weight: bold;
-  border: 1px solid grey;
+  border: 1px solid #CCC;
   color: grey;
-  background: white;
+  background: #F6F7F9;
   z-index: 1000;
-  vertical-align: center;
+  vertical-align: middle;
+  line-height: 2em;
+  padding: 0.5em 0 0.5em 0;
   position: relative;
-  top: 6em;
+  top: 5em;
+  font-size: 1.5em;
+  border-radius: 4px;
+  text-align: center;
 }
 
 .relatedPurchasesSliderArrowLeft:hover, .relatedPurchasesSliderArrowRight:hover {
-  background: grey;
-  color: white;
+  background: #FFFFFF;
+  color: #9C9C9C;
 }
 
 .relatedPurchasesSliderArrowLeft {

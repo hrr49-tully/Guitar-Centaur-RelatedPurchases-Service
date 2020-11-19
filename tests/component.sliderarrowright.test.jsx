@@ -20,11 +20,11 @@ describe('SliderArrowRight ', () => {
   });
 
   it('Should have an arrow button.', () => {
-    expect(sliderArrowRightComponent.find('div[data-testid="arrowBtn"]').length).toBeGreaterThan(0);
+    expect(sliderArrowRightComponent.find('button[data-testid="arrowBtn"]').length).toBeGreaterThan(0);
   });
 
   it('Should have a click event and call the provided callback prop function "handleMove".', () => {
-    const btn = sliderArrowRightComponent.find('div[data-testid="arrowBtn"]');
+    const btn = sliderArrowRightComponent.find('button[data-testid="arrowBtn"]');
     btn.simulate('click');
     expect(exampleData.clicksCount).toEqual(1);
     exampleData.clicksCount = 0;
