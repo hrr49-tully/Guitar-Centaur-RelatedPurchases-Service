@@ -22,7 +22,7 @@ From within the root directory:
 npm install
 ```
 
-### Creating DB User
+### Creating the Database
 IMPORTANT: for newer mariadb systems, otherwise just use username: 'root' and password: '' in connection.js file:
 ```sh
 sudo mariadb -u root
@@ -32,4 +32,45 @@ ALTER USER 'student'@'%' IDENTIFIED BY 'password';
 GRANT ALL on *.* to student;
 FLUSH PRIVILEGES;
 ```
+To import the schema run:
+```sh
+sudo mariadb -u root < schema.sql
+```
+A "rpmodule" database should be created in your mariadb instance.
 
+### Scripts
+Compile client files with:
+```sh
+npm run client
+```
+
+Seeding database:
+```sh
+npm run seeder
+```
+
+Run tests with (server must be running):
+```sh
+npm run test
+```
+
+Run server:
+```sh
+npm run server
+```
+
+Run server, and watch for file changes:
+```sh
+npm run server-dev
+```
+
+### Primary packages
+- express
+- jquery
+- mysql
+- react
+- react-dom
+
+### File structure
+All compiled client files are placed in the "public" folder.
+Client dev files are located in the "client" folder. All CSS module files are placed within the "client/css" files.
