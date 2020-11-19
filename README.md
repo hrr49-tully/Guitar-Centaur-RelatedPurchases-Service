@@ -72,5 +72,9 @@ npm run server-dev
 - react-dom
 
 ### File structure
-All compiled client files are placed in the "public" folder.
-Client dev files are located in the "client" folder. All CSS module files are placed within the "client/css" files.
+- All compiled client files are placed in the "public" folder.
+- Client dev files are located in the "client" folder. 
+- All CSS module files are placed within the "client/css" files.
+- All server files are located in the "server" folder.
+- All test files are located in the "tests" folder.
+- connection.js contains the primary database connection credentials and image file location.
