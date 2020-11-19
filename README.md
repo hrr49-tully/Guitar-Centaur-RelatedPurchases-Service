@@ -2,6 +2,9 @@
 
 > Related purchases carousel and details for an individual item.
 
+## Known Issues
+- Travis-CI is broken.
+
 ## Related Projects
 
   - https://github.com/hrr49-tully/Guitar-Centaur-RelatedPurchases-Proxy
