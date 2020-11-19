@@ -22,7 +22,7 @@ class RelatedPurchase extends React.Component {
           <li><a href="/" onClick={this.handleClick}><img src={this.props.data.image_url} alt="image of a guitar" data-testid="relatedPurchaseImg"/></a></li>
           <li><a href="/" onClick={this.handleClick} data-testid="relatedPurchaseTitle">{this.props.data.title}</a></li>
           <li data-testid="relatedPurchaseCost">${this.props.data.cost}</li>
-          <li><Ratings id={this.props.data.id}/></li>
+          <li><a href="/" onClick={this.handleClick}><Ratings id={this.props.data.id}/></a></li>
         </ul>
       </div>
     );

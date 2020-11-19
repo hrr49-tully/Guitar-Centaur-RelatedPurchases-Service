@@ -5,6 +5,7 @@
   border-radius: 50%;
   display: inline-block;
   margin-right: 1em;
+  border: none;
 }
 
 .relatedPurchasesSliderDot:hover {

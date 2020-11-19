@@ -8,6 +8,7 @@ class Ratings extends React.Component {
     super(props);
 
     // TODO: fix static
+
     this.startFilled = `https://hrr49-fec-jw.s3.us-east-2.amazonaws.com/FEC/images/star0.png`;
     this.starEmpty = `https://hrr49-fec-jw.s3.us-east-2.amazonaws.com/FEC/images/star1.png`;
 
