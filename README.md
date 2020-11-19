@@ -22,3 +22,12 @@ From within the root directory:
 npm install
 ```
 
+### Creating DB User
+IMPORTANT: for newer mariadb systems, otherwise just use username: 'root' and password: '' in connection.js file:
+SET old_passwords=0;
+CREATE USER 'student'@'%' IDENTIFIED BY 'password';
+ALTER USER 'student'@'%' IDENTIFIED BY 'password';
+GRANT ALL on *.* to student;
+FLUSH PRIVILEGES;
+
+
