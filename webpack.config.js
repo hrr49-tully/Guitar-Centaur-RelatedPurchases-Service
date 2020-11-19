@@ -7,7 +7,7 @@ module.exports = {
   watch: true,
   entry: path.join(__dirname, 'client', 'index.jsx'),
   output: {
-    filename: 'services1.js',
+    filename: 'service1.js',
     path: path.join(__dirname, 'public/bundles')
   },
   module: {
