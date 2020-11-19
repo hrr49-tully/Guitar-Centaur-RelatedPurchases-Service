@@ -1,3 +1,10 @@
 .relatedPurchases {
   overflow: hidden;
+
+  padding: 0.5em 0 0.5em 0;
+  border: 1px solid lightgrey;
+}
+
+.relatedPurchases h2 {
+  margin-left: 1em;
 }

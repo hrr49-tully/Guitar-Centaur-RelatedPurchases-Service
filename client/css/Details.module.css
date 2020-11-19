@@ -1,0 +1,25 @@
+p {
+  line-height: 150%;
+}
+
+.details {
+  width: 100%;
+}
+
+.detailsRow {
+  border-bottom: 1px solid lightgrey;
+  padding: 1em 0 1em 0;
+}
+
+.detailsRow h3 {
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.detailsRow p {
+  display: inline-block;
+  width: 75%;
+  height: 100%;
+}

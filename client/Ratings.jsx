@@ -1,15 +1,16 @@
 import React from 'react';
 import $ from 'jquery';
 
+import { awsUrl } from '../connection.js';
+
 import styles from './css/Ratings.module.css';
 
 class Ratings extends React.Component {
   constructor(props) {
     super(props);
 
-    // TODO: fix static
-    this.startFilled = `https://hrr49-fec-jw.s3.us-east-2.amazonaws.com/FEC/images/star0.png`;
-    this.starEmpty = `https://hrr49-fec-jw.s3.us-east-2.amazonaws.com/FEC/images/star1.png`;
+    this.startFilled = `${awsUrl}images/star0.png`;
+    this.starEmpty = `${awsUrl}images/star1.png`;
 
     this.state = {
       ratingCnt: 0,

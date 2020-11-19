@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import styles from './css/Details.module.css';
 
@@ -9,14 +10,19 @@ class Details extends React.Component {
 
   render() {
     return (
-      <div className="details">
-        <h2>Details</h2>
-        <h3>Coverage</h3>
-        <p>{this.props.details.coverage}</p>
-        <h3>Overview</h3>
-        <p>{this.props.details.overview}</p>
-        <h3>Specifications</h3>
-        <p>{this.props.details.specifications}</p>
+      <div className={styles.details}>
+        <div className={styles.detailsRow}>
+          <h3>Coverage</h3>
+          <p>{this.props.details.coverage}</p>
+        </div>
+        <div className={styles.detailsRow}>
+          <h3>Overview</h3>
+          <p>{this.props.details.overview}</p>
+        </div>
+        <div className={styles.detailsRow}>
+          <h3>Specifications</h3>
+          <p>{this.props.details.specifications}</p>
+        </div>
       </div>
     );
   }

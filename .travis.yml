@@ -1,10 +1,10 @@
 language: node_js
 
-node_js:
-  - "stable"
+#node_js:
+#  - "stable"
 
-services:
-  - "mysql"
+#services:
+#  - "mysql"
 
-addons:
-  mariadb: '10.0'
+#addons:
+#  mariadb: '10.0'
