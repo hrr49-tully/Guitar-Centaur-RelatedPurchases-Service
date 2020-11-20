@@ -6,7 +6,7 @@ const conn = require('../connection.js');
 
 app.use(express.static(__dirname + '/../public'));
 
-app.get('/api/getratingavg', (req, res) => {
+app.get('/api/related/getratingavg', (req, res) => {
   if (req.query.id) {
     // single item
     const id = req.query.id;
@@ -21,7 +21,7 @@ app.get('/api/getratingavg', (req, res) => {
   }
 });
 
-app.get('/api/getratingcount', (req, res) => {
+app.get('/api/related/getratingcount', (req, res) => {
   if (req.query.id) {
     // single item
     const id = req.query.id;
@@ -36,7 +36,7 @@ app.get('/api/getratingcount', (req, res) => {
   }
 });
 
-app.get('/api/getitem', (req, res) => {
+app.get('/api/related/getitem', (req, res) => {
   if (req.query.id) {
     // single item
     const id = req.query.id;
@@ -56,7 +56,7 @@ app.get('/api/getitem', (req, res) => {
   }
 });
 
-app.get('/api/getrelatedpurchases', (req, res) => {
+app.get('/api/related/getrelatedpurchases', (req, res) => {
   if (req.query.id) {
     const id = req.query.id;
 
@@ -70,7 +70,7 @@ app.get('/api/getrelatedpurchases', (req, res) => {
   }
 });
 
-app.post('/api/addrelatedpurchase', (req, res) => {
+app.post('/api/related/addrelatedpurchase', (req, res) => {
   if (req.query.pid && req.query.iid) {
     const pid = req.query.pid;
     const iid = req.query.iid;
@@ -85,7 +85,7 @@ app.post('/api/addrelatedpurchase', (req, res) => {
   }
 });
 
-app.post('/api/deleterelatedpurchase', (req, res) => {
+app.post('/api/related/deleterelatedpurchase', (req, res) => {
   if (req.query.id) {
     const id = req.query.id;
 
@@ -99,7 +99,7 @@ app.post('/api/deleterelatedpurchase', (req, res) => {
   }
 });
 
-app.get('/api/getdetails', (req, res) => {
+app.get('/api/related/getdetails', (req, res) => {
   if (req.query.id) {
     const id = req.query.id;
 
@@ -113,7 +113,7 @@ app.get('/api/getdetails', (req, res) => {
   }
 });
 
-app.post('/api/adddetails', (req, res) => {
+app.post('/api/related/adddetails', (req, res) => {
   if (req.query.iid && req.query.overview && req.query.specs && req.query.coverage) {
     const iid = req.query.iid;
     const overview = req.query.overview;
