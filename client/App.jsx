@@ -32,13 +32,13 @@ class App extends React.Component {
   }
 
   getRelatedPurchases(itemId) {
-    $.get('/api/getrelatedpurchases', {id: itemId}, (data) => {
+    $.get('/api/related/getrelatedpurchases', {id: itemId}, (data) => {
       this.setState({relatedData: data});
     });
   }
 
   getDetails(itemId) {
-    $.get('/api/getdetails', {id: itemId}, (data) => {
+    $.get('/api/related/getdetails', {id: itemId}, (data) => {
       this.setState({details: data[0]});
     });
   }
