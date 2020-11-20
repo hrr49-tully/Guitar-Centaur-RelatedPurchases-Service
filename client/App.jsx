@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      id: this.props.id,
+      id: window.item_id,
       relatedData: [],
       details: []
     }
@@ -26,7 +26,8 @@ class App extends React.Component {
   }
 
   handleItemChange(id) {
-    this.setState({id: id});
+    window.item_id = id;
+    this.setState({id: window.item_id});
     this.getRelatedPurchases(id);
     this.getDetails(id);
   }
