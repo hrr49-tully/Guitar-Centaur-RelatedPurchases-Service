@@ -19,10 +19,10 @@ class RelatedPurchase extends React.Component {
     return (
       <div className={styles.relatedPurchase}>
         <ul>
-          <li><a href="/" onClick={this.handleClick}><img src={this.props.data.image_url} alt="image of a guitar" data-testid="relatedPurchaseImg"/></a></li>
-          <li><a href="/" onClick={this.handleClick} data-testid="relatedPurchaseTitle">{this.props.data.title}</a></li>
+          <li><a href={`/${this.props.data.id}`}><img src={this.props.data.image_url} alt="image of a guitar" data-testid="relatedPurchaseImg"/></a></li>
+          <li><a href={`/${this.props.data.id}`} data-testid="relatedPurchaseTitle">{this.props.data.title}</a></li>
           <li data-testid="relatedPurchaseCost">${this.props.data.cost}</li>
-          <li><a href="/" onClick={this.handleClick}><Ratings id={this.props.data.id}/></a></li>
+          <li><a href={`/${this.props.data.id}`}><Ratings id={this.props.data.id}/></a></li>
         </ul>
       </div>
     );

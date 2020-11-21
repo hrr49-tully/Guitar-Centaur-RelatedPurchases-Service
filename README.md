@@ -35,6 +35,11 @@ ALTER USER 'student'@'%' IDENTIFIED BY 'password';
 GRANT ALL on *.* to student;
 FLUSH PRIVILEGES;
 ```
+You may also need to run:
+```sh
+SET PASSWORD FOR 'student'@'localhost' = PASSWORD('password');
+```
+
 To import the schema run:
 ```sh
 sudo mariadb -u root < schema.sql

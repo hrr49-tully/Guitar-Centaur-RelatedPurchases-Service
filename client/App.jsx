@@ -6,13 +6,13 @@ import styles from './css/index.module.css'
 
 import Details from './Details.jsx';
 import RelatedPurchases from './RelatedPurchases.jsx';
-
+// component did mount
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: this.props.id,
+      id: 1,
       relatedData: [],
       details: []
     }
@@ -25,6 +25,16 @@ class App extends React.Component {
     this.getDetails(this.state.id);
   }
 
+  componentDidMount() {
+    let item_id = window.location.pathname;
+    // Remove the first forward slash
+    item_id = item_id.split('');
+    item_id.unshift();
+    item_id = item_id.join('');
+
+    this.handleItemChange(item_id);
+  }
+
   handleItemChange(id) {
     this.setState({id: id});
     this.getRelatedPurchases(id);
@@ -32,13 +42,13 @@ class App extends React.Component {
   }
 
   getRelatedPurchases(itemId) {
-    $.get('/api/getrelatedpurchases', {id: itemId}, (data) => {
+    $.get(`/api/related/getrelatedpurchases/${itemId}`, (data) => {
       this.setState({relatedData: data});
     });
   }
 
   getDetails(itemId) {
-    $.get('/api/getdetails', {id: itemId}, (data) => {
+    $.get(`/api/related/getdetails/${itemId}`, (data) => {
       this.setState({details: data[0]});
     });
   }
