@@ -6,11 +6,12 @@ const conn = require('../connection.js');
 
 app.use(express.static(__dirname + '/../public'));
 
-app.get('/api/related/getratingavg', (req, res) => {
-  if (req.query.id) {
-    // single item
-    const id = req.query.id;
 
+
+app.get('/api/related/getratingavg/:item_id', (req, res) => {
+  const id = req.params.item_id;
+  if (id) {
+    // single item
     return db.getRatingAvg(id, (results) => {
       res.status(200).send(results);
     }, (error) => {
@@ -21,11 +22,10 @@ app.get('/api/related/getratingavg', (req, res) => {
   }
 });
 
-app.get('/api/related/getratingcount', (req, res) => {
-  if (req.query.id) {
+app.get('/api/related/getratingcount/:item_id', (req, res) => {
+  const id = req.params.item_id;
+  if (id) {
     // single item
-    const id = req.query.id;
-
     return db.getRatingCount(id, (results) => {
       res.status(200).send(results);
     }, (error) => {
@@ -36,19 +36,11 @@ app.get('/api/related/getratingcount', (req, res) => {
   }
 });
 
-app.get('/api/related/getitem', (req, res) => {
-  if (req.query.id) {
+app.get('/api/related/getitem/:item_id', (req, res) => {
+  const id = req.params.item_id;
+  if (id) {
     // single item
-    const id = req.query.id;
-
     return db.getItem(id, (results) => {
-      res.status(200).send(results);
-    }, (error) => {
-      res.status(401).send('Server error');
-    });
-  } else {
-    // all items
-    return db.getItem(null, (results) => {
       res.status(200).send(results);
     }, (error) => {
       res.status(401).send('Server error');
@@ -56,10 +48,18 @@ app.get('/api/related/getitem', (req, res) => {
   }
 });
 
-app.get('/api/related/getrelatedpurchases', (req, res) => {
-  if (req.query.id) {
-    const id = req.query.id;
+app.get('/api/related/getitem', (req, res) => {
+  // all items
+  return db.getItem(null, (results) => {
+    res.status(200).send(results);
+  }, (error) => {
+    res.status(401).send('Server error');
+  });
+});
 
+app.get('/api/related/getrelatedpurchases/:item_id', (req, res) => {
+  const id = req.params.item_id;
+  if (id) {
     return db.getRelatedPurchases(id, (results) => {
       res.status(200).send(results);
     }, (error) => {
@@ -99,9 +99,9 @@ app.post('/api/related/deleterelatedpurchase', (req, res) => {
   }
 });
 
-app.get('/api/related/getdetails', (req, res) => {
-  if (req.query.id) {
-    const id = req.query.id;
+app.get('/api/related/getdetails/:item_id', (req, res) => {
+  const id = req.params.item_id;
+  if (id) {
 
     return db.getDetails(id, (results) => {
       res.status(200).send(results);
