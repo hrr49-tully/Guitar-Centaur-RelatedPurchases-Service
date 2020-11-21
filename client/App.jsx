@@ -29,10 +29,14 @@ class App extends React.Component {
     let item_id = window.location.pathname;
     // Remove the first forward slash
     item_id = item_id.split('');
-    item_id.unshift();
+    item_id.shift();
     item_id = item_id.join('');
 
     this.handleItemChange(item_id);
+
+    if (item_id >= 0) {
+      this.handleItemChange(item_id);
+    }
   }
 
   handleItemChange(id) {
