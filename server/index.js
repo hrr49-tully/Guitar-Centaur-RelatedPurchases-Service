@@ -11,6 +11,10 @@ app.get('/:item_id', (req, res) => {
   res.sendFile(`${path.resolve(__dirname, '../', 'public')}/index.html`);
 });
 
+app.get('/bundle.js', (req, res) => {
+  req.pipe(request(`${db.conn.awsUrl}bundle.js`)).pipe(res)
+});
+
 app.get('/api/related/getratingavg/:item_id', (req, res) => {
   const id = req.params.item_id;
   if (id) {
