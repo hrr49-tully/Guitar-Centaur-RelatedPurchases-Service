@@ -11,3 +11,7 @@
 .ratings .ratingsCount {
   margin-left: 16px;
 }
+
+.ratingsCount {
+  color: black;
+}
