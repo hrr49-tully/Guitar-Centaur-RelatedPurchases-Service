@@ -6,8 +6,6 @@ const conn = require('../connection.js');
 
 app.use(express.static(__dirname + '/../public'));
 
-
-
 app.get('/api/related/getratingavg/:item_id', (req, res) => {
   const id = req.params.item_id;
   if (id) {

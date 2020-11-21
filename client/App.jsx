@@ -25,6 +25,10 @@ class App extends React.Component {
     this.getDetails(this.state.id);
   }
 
+  componentDidMount() {
+    console.log(window.location.pathname);
+  }
+
   handleItemChange(id) {
     this.setState({id: id});
     this.getRelatedPurchases(id);
@@ -32,7 +36,7 @@ class App extends React.Component {
   }
 
   getRelatedPurchases(itemId) {
-    $.get(`/api/related/getrelatedpurchasess/${itemId}`, (data) => {
+    $.get(`/api/related/getrelatedpurchases/${itemId}`, (data) => {
       this.setState({relatedData: data});
     });
   }
