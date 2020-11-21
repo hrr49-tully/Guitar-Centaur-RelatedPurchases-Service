@@ -48,7 +48,7 @@ app.get('/api/related/getitem/:item_id', (req, res) => {
   }
 });
 
-app.get('/api/related/getitem', (req, res) => {
+app.get('/api/related/getitems', (req, res) => {
   // all items
   return db.getItem(null, (results) => {
     res.status(200).send(results);

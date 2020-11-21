@@ -49,31 +49,33 @@ describe('/api/related/getratingcount end point:', () => {
 describe('/api/related/getitem/# end point:', () => {
   it('Should fetch an id, title, description, cost, image_url, overview, specifications, and coverage for a given item ID', (done) => {
     request.get('/api/related/getitem/1').expect(200).expect((res) => {
-      expect(JSON.parse(res.text)[0].id).toBeDefined();
-      expect(JSON.parse(res.text)[0].title).toBeDefined();
-      expect(JSON.parse(res.text)[0].description).toBeDefined();
-      expect(JSON.parse(res.text)[0].cost).toBeDefined();
-      expect(JSON.parse(res.text)[0].image_url).toBeDefined();
-      expect(JSON.parse(res.text)[0].overview).toBeDefined();
-      expect(JSON.parse(res.text)[0].specifications).toBeDefined();
-      expect(JSON.parse(res.text)[0].coverage).toBeDefined();
+      const data = JSON.parse(res.text);
+      expect(data[0].id).toBeDefined();
+      expect(data[0].title).toBeDefined();
+      expect(data[0].description).toBeDefined();
+      expect(data[0].cost).toBeDefined();
+      expect(data[0].image_url).toBeDefined();
+      expect(data[0].overview).toBeDefined();
+      expect(data[0].specifications).toBeDefined();
+      expect(data[0].coverage).toBeDefined();
       expect(res.status).toEqual(200);
     }).end(done);
   });
 });
 
-describe('/api/related/getitem end point:', () => {
+describe('/api/related/getitems end point:', () => {
   it('Should fetch many items which include id, title, description, cost, image_url, overview, specifications, and coverage for a given item ID', (done) => {
-    request.get('/api/related/getitem').expect(200).expect((res) => {
-      //expect(JSON.parse(res.text).length).toBeGreaterThan(0);
-      expect(JSON.parse(res.text)[0].id).toBeDefined();
-      expect(JSON.parse(res.text)[0].title).toBeDefined();
-      expect(JSON.parse(res.text)[0].description).toBeDefined();
-      expect(JSON.parse(res.text)[0].cost).toBeDefined();
-      expect(JSON.parse(res.text)[0].image_url).toBeDefined();
-      expect(JSON.parse(res.text)[0].overview).toBeDefined();
-      expect(JSON.parse(res.text)[0].specifications).toBeDefined();
-      expect(JSON.parse(res.text)[0].coverage).toBeDefined();
+    request.get('/api/related/getitems').expect(200).expect((res) => {
+      const data = JSON.parse(res.text);
+      expect(data.length).toBeGreaterThan(1);
+      expect(data[0].id).toBeDefined();
+      expect(data[0].title).toBeDefined();
+      expect(data[0].description).toBeDefined();
+      expect(data[0].cost).toBeDefined();
+      expect(data[0].image_url).toBeDefined();
+      expect(data[0].overview).toBeDefined();
+      expect(data[0].specifications).toBeDefined();
+      expect(data[0].coverage).toBeDefined();
       expect(res.status).toEqual(200);
     }).end(done);
   });

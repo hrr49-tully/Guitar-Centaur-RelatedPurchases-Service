@@ -38,7 +38,7 @@ module.exports.getItem = function getItem(itemId, succ, err) {
     });
   } else {
     // get all items
-    conn.dbConn.query('SELECT i.title,i.description,i.cost,i.image_url,d.overview,d.specifications,d.coverage FROM items i LEFT JOIN details d ON i.details_id = d.id',  (error, results) => {
+    conn.dbConn.query('SELECT i.id,i.title,i.description,i.cost,i.image_url,d.overview,d.specifications,d.coverage FROM items i LEFT JOIN details d ON i.details_id = d.id',  (error, results) => {
       if (error) {
         err(error);
       } else {
