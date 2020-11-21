@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/../public'));
 
 /* Shouldn't be used in local testing proxy */
 app.get('/:item_id', (req, res) => {
-  res.sendFile(`${__dirname}/../public/index.html`);
+  res.sendFile(path.resolve(__dirname, '../', 'public'));
 });
 
 app.get('/api/related/getratingavg/:item_id', (req, res) => {
