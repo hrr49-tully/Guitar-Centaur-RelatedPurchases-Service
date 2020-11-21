@@ -32,9 +32,7 @@ class App extends React.Component {
     item_id.unshift();
     item_id = item_id.join('');
 
-    if (item_id) {
-      this.handleItemChange(item_id);
-    }
+    this.handleItemChange(item_id);
   }
 
   handleItemChange(id) {
