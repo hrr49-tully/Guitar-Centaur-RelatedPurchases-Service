@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      id: window.item_id || 1,
+      id: 1,
       relatedData: [],
       details: []
     }
@@ -26,7 +26,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log(window.location.pathname);
+    let item_id = window.location.pathname;
+    // Remove the first forward slash
+    item_id = item_id.split('');
+    item_id.unshift();
+    item_id = item_id.join('');
+
+    handleItemChange(item_id);
   }
 
   handleItemChange(id) {
