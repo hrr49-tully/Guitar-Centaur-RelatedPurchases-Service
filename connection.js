@@ -1,10 +1,10 @@
 // Shared connection information, for easy changing later
 const host  = 'localhost';
-const port  = 3001;
+const port  = 3003;
 const url   = `http://${host}:${port}`;
 
-const dbUser  = 'student';
-const dbPass  = 'password';
+const dbUser  = 'root';
+const dbPass  = '';
 const db      = 'rpmodule';
 
 const awsUrl = 'https://hrr49-fec-jw.s3.us-east-2.amazonaws.com/FEC/';
