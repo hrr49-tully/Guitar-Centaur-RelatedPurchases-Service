@@ -1,5 +1,5 @@
 .ratings .ratingsAverage .star {
-  width: 16px;
+  width: 1em;
   height: auto;
   display: inline-block;
 }
@@ -9,9 +9,21 @@
 }
 
 .ratings .ratingsCount {
-  margin-left: 16px;
+  margin-left: 1em;
 }
 
 .ratingsCount {
   color: black;
+}
+
+@media only screen and (max-width: 900px) {
+  .ratings .ratingsCount {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .ratings {
+    display: none;
+  }
 }
