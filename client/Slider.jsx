@@ -40,6 +40,8 @@ class Slider extends React.Component {
         currentPos += amount;
         this.setState({stackPosition: currentPos});
 
+        console.log('move right');
+
         $("#relatedPurchasesSlider").animate({
           left: "-=100%",
         }, 500 );
