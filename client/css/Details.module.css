@@ -9,17 +9,27 @@ p {
 .detailsRow {
   border-bottom: 1px solid lightgrey;
   padding: 1em 0 1em 0;
+  display: grid;
+  column-gap: 2em;
 }
 
 .detailsRow h3 {
-  display: inline-block;
-  width: 25%;
-  height: 100%;
+  grid-column-start: 1;
+  grid-column-end: 2;
   vertical-align: top;
+  width: 8em;
 }
 
 .detailsRow p {
-  display: inline-block;
-  width: 75%;
-  height: 100%;
+  vertical-align: top;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  padding-top: 0.5em;
+}
+
+@media only screen and (max-width: 700px) {
+  .detailsRow, .detailsRow p, .detailsRow h3 {
+    display: block;
+    width: 100%;
+  }
 }

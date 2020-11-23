@@ -10,10 +10,13 @@ app.use(express.static(__dirname + '/../public'));
 app.get('/:item_id', (req, res) => {
   res.sendFile(`${path.resolve(__dirname, '../', 'public')}/index.html`);
 });
+<<<<<<< HEAD
 
 app.get('/bundle.js', (req, res) => {
   req.pipe(request(`${db.conn.awsUrl}bundle.js`)).pipe(res)
 });
+=======
+>>>>>>> b1eeea0efd662ab39bf81fed9af4a6869226a91e
 
 app.get('/api/related/getratingavg/:item_id', (req, res) => {
   const id = req.params.item_id;
