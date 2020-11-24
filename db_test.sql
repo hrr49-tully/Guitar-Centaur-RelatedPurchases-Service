@@ -1,5 +1,5 @@
 SET old_passwords=0;
-CREATE USER 'student'@'localhost' IDENTIFIED BY 'password';
-ALTER USER 'student'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'student'@'%' IDENTIFIED BY 'password';
+ALTER USER 'student'@'%' IDENTIFIED BY 'password';
 GRANT ALL on *.* to student;
 FLUSH PRIVILEGES;
