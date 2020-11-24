@@ -7,7 +7,8 @@ const conn = require('../connection.js');
 app.use(express.static(__dirname + '/../public'));
 
 app.get('/bundle.js', (req, res) => {
-  require('request').get(`${db.awsUrl}bundle.js`).pipe(res);
+  const url = `${db.awsUrl}bundle.js`;
+  require('request').get(url).pipe(res);
 });
 
 /* Shouldn't be used in local testing proxy */
