@@ -1,6 +1,8 @@
 arch:
   - amd64
 
+dist: precise
+
 language: node_js
 
 node_js:
@@ -16,5 +18,5 @@ addons:
   mariadb: '10.0'
 
 before_install:
-  - mysql -u root --password="" < schema.sql;
-  - mysql -u root --password="" < db_test.sql;
+  - sudo mysql -u root --password="" < schema.sql;
+  - sudo mysql -u root --password="" < db_test.sql;
