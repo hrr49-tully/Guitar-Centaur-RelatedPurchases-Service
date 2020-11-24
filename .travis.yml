@@ -1,7 +1,7 @@
 arch:
   - amd64
 
-dist: precise
+dist: focal
 
 language: node_js
 
