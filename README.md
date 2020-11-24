@@ -2,9 +2,6 @@
 
 > Related purchases carousel and details for an individual item.
 
-## Known Issues
-- Travis-CI is broken.
-
 ## Related Projects
 
   - https://github.com/hrr49-tully/Guitar-Centaur-RelatedPurchases-Proxy
@@ -26,12 +23,12 @@ npm install
 ```
 
 ### Creating the Database
-IMPORTANT: for newer mariadb systems, otherwise just use username: 'root' and password: '' in connection.js file:
+IMPORTANT: for newer mariadb systems, otherwise just use username: 'root' and password: '' in connection.js file. Modify host and GRANT as needed:
 ```sh
 sudo mariadb -u root
 SET old_passwords=0;
-CREATE USER 'student'@'%' IDENTIFIED BY 'password';
-ALTER USER 'student'@'%' IDENTIFIED BY 'password';
+CREATE USER 'student'@'localhost' IDENTIFIED BY 'password';
+ALTER USER 'student'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL on *.* to student;
 FLUSH PRIVILEGES;
 ```
