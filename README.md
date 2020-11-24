@@ -2,9 +2,6 @@
 
 > Related purchases carousel and details for an individual item.
 
-## Known Issues
-- Travis-CI is broken.
-
 ## Related Projects
 
   - https://github.com/hrr49-tully/Guitar-Centaur-RelatedPurchases-Proxy
@@ -26,12 +23,12 @@ npm install
 ```
 
 ### Creating the Database
-IMPORTANT: for newer mariadb systems, otherwise just use username: 'root' and password: '' in connection.js file:
+IMPORTANT: for newer mariadb systems, otherwise just use username: 'root' and password: '' in connection.js file. Modify host and GRANT as needed:
 ```sh
 sudo mariadb -u root
 SET old_passwords=0;
-CREATE USER 'student'@'%' IDENTIFIED BY 'password';
-ALTER USER 'student'@'%' IDENTIFIED BY 'password';
+CREATE USER 'student'@'localhost' IDENTIFIED BY 'password';
+ALTER USER 'student'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL on *.* to student;
 FLUSH PRIVILEGES;
 ```
@@ -89,8 +86,8 @@ npm run server-dev
 
 
 ### API Endpoints:
-#### /api/getitem
-##### GET: /api/getitem?id=[itemId]
+#### /api/related/getitem
+##### GET: /api/related/getitem?id=[itemId]
 ###### Parameters:
 - id
   -- The item id.
@@ -101,9 +98,9 @@ npm run server-dev
 - 200: Items found
 - 401: Error, no items found or database connection issue.
 
-#### /api/getrelatedpurchases
+#### /api/related/getrelatedpurchases
 
-##### GET: /api/getrealtedpurchases?id=[itemId]
+##### GET: /api/related/getrealtedpurchases?id=[itemId]
 
 ###### Parameters:
 - id
@@ -116,8 +113,8 @@ npm run server-dev
 - 200: Finds and returns information successfully.
 - 401: Generic error code.
 
-#### /api/addrelatedpurchase
-##### POST: /api/addrelatedpurchase?pid=[itemId]&iid=[itemId]
+#### /api/related/addrelatedpurchase
+##### POST: /api/related/addrelatedpurchase?pid=[itemId]&iid=[itemId]
 
 ###### Parameters:
 - pid
@@ -132,8 +129,8 @@ npm run server-dev
 - 200: Related purchase added successfully.
 - 401: Generic error code.
 
-#### /api/deleterelatedpurchase
-##### POST: /api/deleterelatedpurchase?id=[itemId]
+#### /api/related/deleterelatedpurchase
+##### POST: /api/related/deleterelatedpurchase?id=[itemId]
 
 ###### Parameters:
 - id
@@ -146,7 +143,7 @@ npm run server-dev
 - 200: Related purchase deleted successfully.
 - 401: Generic error code.
 
-#### /api/getdetails (extra feature)
+#### /api/related/getdetails (extra feature)
 ##### GET: /api/getdetails?id=[itemId]
 
 ###### Parameters:
@@ -160,8 +157,8 @@ npm run server-dev
 - 200: Finds and returns information successfully.
 - 401: Generic error code.
 
-#### /api/adddetails (extra feature)
-##### POST: /api/adddetails?iid=[item_id]&overview=[text]&specifications=[text]&coverage=[text]
+#### /api/related/adddetails (extra feature)
+##### POST: /api/related/adddetails?iid=[item_id]&overview=[text]&specifications=[text]&coverage=[text]
 
 ###### Parameters:
 - iid
@@ -180,8 +177,8 @@ npm run server-dev
 - 200: Created a details record and added the foreign key to the relevant item in the items table.
 - 401: Details weren’t added.
 
-#### /api/getratingavg
-##### GET: /api/getratingavg?id=[item_id]
+#### /api/related/getratingavg
+##### GET: /api/related/getratingavg?id=[item_id]
 
 ###### Parameters:
 - iid
@@ -194,8 +191,8 @@ npm run server-dev
 - 200: Received back any rating average available.
 - 401: Bad arguments
 
-#### /api/getratingcount
-##### GET: /api/getratingcount?id=[item_id]
+#### /api/related/getratingcount
+##### GET: /api/related/getratingcount?id=[item_id]
 
 ###### Parameters:
 - iid

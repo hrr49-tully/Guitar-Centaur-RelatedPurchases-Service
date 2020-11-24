@@ -17,4 +17,4 @@ before_script:
   - mysql -u root < db_test.sql;
   - npm run seeder
   - (npm run server&)
-  - sleep 10
+  - sleep 5
