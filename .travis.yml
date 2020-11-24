@@ -12,9 +12,6 @@ services:
 install:
     - npm install
 
-addons:
-  mariadb: '10.0'
-
 before_script:
   - mysql -u root < schema.sql;
   - mysql -u root < db_test.sql;
