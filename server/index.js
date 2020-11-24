@@ -4,11 +4,13 @@ const path = require('path');
 const db = require('./database.js');
 const conn = require('../connection.js');
 
+const request = require('request');
+
 app.use(express.static(__dirname + '/../public'));
 
 app.get('/bundle.js', (req, res) => {
   const url = `${db.awsUrl}bundle.js`;
-  require('request').get(url).pipe(res);
+  request.get(url).pipe(res);
 });
 
 /* Shouldn't be used in local testing proxy */
