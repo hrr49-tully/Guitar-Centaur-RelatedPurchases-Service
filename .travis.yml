@@ -14,3 +14,7 @@ install:
 
 addons:
   mariadb: '10.0'
+
+before_install:
+  - mariadb -u root < schema.sql;
+  - mariadb -u root < db_test.sql;
