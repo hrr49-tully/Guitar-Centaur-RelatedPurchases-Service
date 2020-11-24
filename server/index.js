@@ -9,7 +9,7 @@ const request = require('request');
 app.use(express.static(__dirname + '/../public'));
 
 app.get('/bundle.js', (req, res) => {
-  const url = `${db.awsUrl}bundle.js`;
+  const url = `${conn.awsUrl}bundle.js`;
   request.get(url).pipe(res);
 });
 
