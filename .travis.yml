@@ -1,10 +1,16 @@
+arch:
+  - arm64
+
 language: node_js
 
-#node_js:
-#  - "stable"
+node_js:
+    - "stable"
 
-#services:
-#  - "mysql"
+services:
+    - "mysql"
 
-#addons:
-#  mariadb: '10.0'
+install:
+    - npm install
+
+addons:
+  mariadb: '10.0'
