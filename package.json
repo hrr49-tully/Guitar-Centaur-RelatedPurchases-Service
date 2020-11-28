@@ -9,7 +9,8 @@
   },
   "scripts": {
     "seeder": "node seeder/seeder.js",
-    "server": "screen && node server/index.js",
+    "server": "node server/index.js",
+    "ec2": "screen && node server/index.js",
     "server-dev": "nodemon server/index.js",
     "client": "webpack -d --watch",
     "test": "jest"
