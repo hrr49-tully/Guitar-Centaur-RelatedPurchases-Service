@@ -3,21 +3,27 @@ const app = express();
 const path = require('path');
 const db = require('./database.js');
 const conn = require('../connection.js');
-
+const compression = require('compression');
 const request = require('request');
 
+// Compress all responses
+app.use(compression());
+
+// Serves rest of static files up
 app.use(express.static(__dirname + '/../public'));
 
+// Redirects (pipes) bundle from aws s3
 app.get('/bundle.js', (req, res) => {
   const url = `${conn.awsUrl}bundle.js`;
   request.get(url).pipe(res);
 });
 
-/* Shouldn't be used in local testing proxy */
+// Shouldn't be used in local testing proxy, serves index.html up
 app.get('/:item_id', (req, res) => {
   res.sendFile(`${path.resolve(__dirname, '../', 'public')}/index.html`);
 });
 
+// ENDPOINTS
 app.get('/api/related/getratingavg/:item_id', (req, res) => {
   const id = req.params.item_id;
   if (id) {
